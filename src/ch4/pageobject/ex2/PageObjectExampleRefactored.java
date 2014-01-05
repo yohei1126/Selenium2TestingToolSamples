@@ -1,4 +1,4 @@
-package ch4.pageobject;
+package ch4.pageobject.ex2;
 
 import static org.junit.Assert.*;
 
@@ -9,7 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class PageObjectExample {
+public class PageObjectExampleRefactored {
 	private static WebDriver selenium;
 	
 	@BeforeClass
@@ -24,15 +24,24 @@ public class PageObjectExample {
 
 	@Test
 	public void shouldCheckButtonOnChapter2Page() {
-		selenium.get("http://book.theautomatedtester.co.uk");
-		selenium.findElement(By.linkText("Chapter2")).click();
+		loadHomePage();
+		clickAndLoadChapter2();
 		assertEquals(selenium.findElements(By.id("but1")).size(), 1);
 	}
 
 	@Test
 	public void shouldCheckAnotherButtonOnChapter2Page() {
-		selenium.get("http://book.theautomatedtester.co.uk");
-		selenium.findElement(By.linkText("Chapter2")).click();
+		loadHomePage();
+		clickAndLoadChapter2();
 		assertEquals(selenium.findElements(By.id("divinthecenter")).size(), 1);
 	}
+
+	private void clickAndLoadChapter2() {
+		selenium.findElement(By.linkText("Chapter2")).click();
+	}
+
+	private void loadHomePage() {
+		selenium.get("http://book.theautomatedtester.co.uk");
+	}
+
 }

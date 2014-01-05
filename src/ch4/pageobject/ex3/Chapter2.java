@@ -1,4 +1,4 @@
-package ch4.pageobject;
+package ch4.pageobject.ex3;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

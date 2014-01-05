@@ -1,4 +1,4 @@
-package ch4.pageobject;
+package ch4.pageobject.ex3;
 
 import static org.junit.Assert.assertTrue;
 
